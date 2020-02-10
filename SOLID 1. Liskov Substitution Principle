@@ -1,0 +1,38 @@
+using System;
+
+namespace Geometry
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Polygon square = new Square() { Height = 5 };
+            Console.WriteLine("Square area is : {0}", square.Area());
+
+            Polygon rectangle = new Rectangle() { Height = 4, Width = 3 };
+            Console.WriteLine("Rectangle area is : {0}", rectangle.Area());
+        }
+    }
+
+    abstract class Polygon
+    {
+        public double Height { get; set; }
+        public double Width { get; set; }
+
+        public abstract double Area();
+    }
+    class Square : Polygon
+    {
+        public override double Area()
+        {
+            return Height * Height;
+        }
+    }
+    class Rectangle : Polygon
+    {
+        public override double Area()
+        {
+            return Height * Width;
+        }
+    }
+}
